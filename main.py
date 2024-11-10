@@ -12,6 +12,7 @@ class Note(db.Model):
     text = db.Column(db.Text, nullable=False)
     date = db.Column(db.Date, default=datetime.now().date())
 
+
     def __repr__(self):
         return '<Note %r>' % self.id
 
