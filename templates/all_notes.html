@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body%}
+    {% if notes|length > 0 %}
+        {% for note in notes %}
+            <div>
+                <a href="{{ url_for('note', id=note.id) }}">{{ note.title }}</a>
+                {{ note.date }}
+                <a href="/{{ note.id }}"></a>
+            </div>
+        {% endfor %}
+    {% else %}
+        Пока что у вас нету заметок
+    {% endif %}
+{% endblock %}
