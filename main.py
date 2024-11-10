@@ -68,4 +68,4 @@ def edit_note(id):
     return render_template('edit_note.html', note=note)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
