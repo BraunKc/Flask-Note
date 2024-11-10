@@ -3,7 +3,7 @@
     <div>
         <h1>{{ note.title }}</h1>
         <p>{{ note.text }}</p>
-        <span>{{ note.date }}</span>
+        <span>{{ note.date.date() }}</span>
     </div>
     <a href="{{ url_for('note', id=id) }}/del">удалить</a>
     <a href="{{ url_for('note', id=id) }}/edit">редактировать</a>
