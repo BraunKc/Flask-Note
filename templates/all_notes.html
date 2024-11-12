@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 {% block body%}
-    <a href="{{ url_for('create_note') }}">создать заметку</a>
-    {% if notes|length > 0 %}
-        {% for note in notes %}
+        {% if is_auth %}
             <div>
-                <a href="{{ url_for('note', id=note.id) }}">{{ note.title }}</a>
-                {{ note.date.date() }}
-                <a href="/{{ note.id }}"></a>
+                <a href="{{ url_for('logout') }}">logout</a>
             </div>
-        {% endfor %}
-    {% else %}
-        Пока что у вас нету заметок
-    {% endif %}
+            <a href="{{ url_for('create_note') }}">создать заметку</a>
+            {% if notes|length > 0 %}
+                {% for note in notes %}
+                    <div>
+                        <a href="{{ url_for('note', id=note.id) }}">{{ note.title }}</a>
+                        {{ note.date.date() }}
+                        <a href="/{{ note.id }}"></a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <div>
+                <a href="{{ url_for('registration') }}">register</a>
+                <a href="{{ url_for('login') }}">login</a>
+            </div>
+        {% endif %}
 {% endblock %}
