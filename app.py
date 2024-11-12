@@ -82,6 +82,12 @@ def registration():
 
         if User.query.filter_by(email=email).first():
             return 'Почта уже зарегистрирована'
+        if len(username) < 3:
+            return 'Username должен быть длиннее'
+        elif len(email) < 1:
+            return 'Вы не ввели почту'
+        elif len(password) < 5:
+            return 'Пароль слишком короткий'
 
         user = User(username=username, email=email, password=password)
 
