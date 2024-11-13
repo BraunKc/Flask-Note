@@ -1,4 +1,4 @@
-from flask import url_for, render_template, redirect, request
+from flask import render_template, redirect, request, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 
@@ -18,7 +18,6 @@ def main_page():
     else:
         notes = []
         is_auth = False
-
     return render_template('all_notes.html', title='ZNote', notes=notes, is_auth=is_auth)
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -127,4 +126,4 @@ def logout():
         return 'Не получилось выйти'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
